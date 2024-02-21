@@ -44,17 +44,7 @@ def main():
     url = "https://gazoo.com/U-Car/search_result?Cn=01_%E3%82%B7%E3%82%A8%E3%83%B3%E3%82%BF&Ge=minivan&Ymn=2019&Brkp=1&chk-brake-pedestrian=1&Ldw=1&chk-detail-warning=1&Pvm=1&Drec=1&Ptc=1400&Sc=1&Own=1&Mend=1&Eng=H&Bm=1&Sk=1&Etc=1"
     data = get_data(url)
     df = pd.DataFrame(data, columns=['Date', 'CarName', 'Year', 'Price', 'Kilometers', 'ShakenDate', 'Rating', 'URL'])
-    # Convert the dataframe to a CSV string
-    csv_data = df.to_csv(index=False)
-
-    # Create a timestamped filename
-    #filename = f"data_{timestamp}.csv"
-
-    # Save the dataframe to a CSV file with the timestamped filename
-    #df.to_csv(filename, index=False)
-    # Print the CSV data
-    print(csv_data)
-
+    
     # Save the DataFrame to SQLite
     save_to_sqlite(df, 'car_data')
 
