@@ -39,7 +39,15 @@
                     { data: 'Kilometers' },
                     { data: 'ShakenDate' },
                     { data: 'Rating' },
-                    { data: 'URL' },
+                    { 
+                        data: 'URL',
+                        render: function(data, type, row, meta) {
+                            if (type === 'display') {
+                                return '<a href="' + data + '" target="_blank">' + data + '</a>';
+                            }
+                            return data;
+                        }
+                    },
                     // Add more columns as needed
                 ],
                 charset: 'UTF-8' // Explicitly set charset to UTF-8
