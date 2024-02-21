@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, render_template
 import sqlite3
 import pandas as pd
+import json
 
 app = Flask(__name__)
 
@@ -14,9 +15,10 @@ def load_data_from_sqlite(db_file, table_name):
     # Convert the data to a JSON format
     json_data = df.to_json(orient='records', force_ascii=False)
 
-    print(json_data)
+    # Wrap the JSON data in a dictionary with "data" key
+    wrapped_json_data = {"data": json.loads(json_data)}
 
-    return json_data
+    return wrapped_json_data
 
 @app.route('/')
 def index():
@@ -28,8 +30,7 @@ def get_data():
     db_file = "car_data.db"
     table_name = "car_data"
     json_data = load_data_from_sqlite(db_file, table_name)
-    
-    
+
     # Return JSON data
     return json_data
 
