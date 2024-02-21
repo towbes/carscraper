@@ -1,7 +1,10 @@
 # Ignore everything
-*
+*.*
+venv/*
 
 # But not these files...
 !.gitignore
 !carscraper.py
 !getcars.py
+!webcars.py
+!templates/index.html

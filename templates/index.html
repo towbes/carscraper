@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLite Table Viewer</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <table id="data-table" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>CarName</th>
+                <th>Year</th>
+                <th>Price</th>
+                <th>Kilometers</th>
+                <th>ShakenDate</th>
+                <th>Rating</th>
+                <th>URL</th>
+                <!-- Add more headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#data-table').DataTable({
+                ajax: '/data',
+                columns: [
+                    { data: 'Date' },
+                    { data: 'CarName' },
+                    { data: 'Year' },
+                    { data: 'Price' },
+                    { data: 'Kilometers' },
+                    { data: 'ShakenDate' },
+                    { data: 'Rating' },
+                    { data: 'URL' },
+                    // Add more columns as needed
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
