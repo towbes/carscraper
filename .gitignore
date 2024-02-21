@@ -4,6 +4,7 @@ venv/*
 
 # But not these files...
 !.gitignore
+!readme.md
 !carscraper.py
 !getcars.py
 !webcars.py
