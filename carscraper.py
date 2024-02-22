@@ -35,7 +35,7 @@ def save_to_sqlite(df, table_name):
     conn = sqlite3.connect('car_data.db')
     
     # Save the DataFrame to the database
-    df.to_sql(table_name, conn, if_exists='replace', index=False)
+    df.to_sql(table_name, conn, if_exists='append', index=False)
     
     # Close the connection
     conn.close()
